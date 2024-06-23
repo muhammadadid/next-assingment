@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+
 export default function FoodCard({ food }) {
   const router = useRouter();
   const onClick = () => {
