@@ -14,7 +14,7 @@ export default function FoodForm({ defaultFormData, isEdit }) {
       {
         name: fromData.name,
         imageUrl: fromData.imageUrl,
-        description:  fromData.description,
+        description: fromData.description,
         ingredients: fromData.ingredients,
       },
       {
@@ -44,46 +44,69 @@ export default function FoodForm({ defaultFormData, isEdit }) {
   };
 
   return (
-    // 
+    //
     <div className="container p-4 mx-auto">
-      <h1 className="mb-4 text-2xl font-bold text-black">{isEdit ? 'Edit Food' : 'Create New Food'}</h1>
+      <h1 className="mb-4 text-2xl font-bold text-black">
+        {isEdit ? "Edit Food" : "Create New Food"}
+      </h1>
       <form onSubmit={onSubmit}>
         <div className="mb-4">
-          <input 
+          <input
             type="text"
             className="w-full p-2 mb-2 text-black border rounded"
             placeholder="Name"
             name="name"
             value={fromData.name}
-            onChange={(e) =>
-                      setFromData({ ...fromData, name: e.target.value })}
+            onChange={(e) => setFromData({ ...fromData, name: e.target.value })}
           />
-          <textarea 
+          <textarea
             className="w-full p-2 mb-2 text-black border rounded"
             placeholder="Description"
             name="description"
             value={fromData.description}
-            onChange={(e) => setFromData({ ...fromData, description: e.target.value })}
+            onChange={(e) =>
+              setFromData({ ...fromData, description: e.target.value })
+            }
           />
-          <input 
+          <input
             type="text"
             className="w-full p-2 mb-2 text-black border rounded"
             placeholder="Image URL"
             name="imageUrl"
             value={fromData.imageUrl}
-            onChange={(e)=> setFromData({ ...fromData, imageUrl: e.target.value })}
+            onChange={(e) =>
+              setFromData({ ...fromData, imageUrl: e.target.value })
+            }
           />
-          <input 
+          <input
             type="text"
             className="w-full p-2 mb-2 text-black border rounded"
             placeholder="Ingredients (comma separated)"
             name="ingredients"
             value={fromData.ingredients}
-            onChange={(e) => setFromData({ ...fromData, ingredients: e.target.value.split(',') })}
+            onChange={(e) =>
+              setFromData({
+                ...fromData,
+                ingredients: e.target.value.split(","),
+              })
+            }
           />
         </div>
-        <button type="submit" className="p-2 mr-2 text-white bg-blue-500 rounded">{isEdit ? 'Update' : 'Create'}</button>
-        {isEdit && <button type="button" onClick={handleDelete} className="p-2 text-white bg-red-500 rounded">Delete</button>}
+        <button
+          type="submit"
+          className="p-2 mr-2 text-white bg-blue-500 rounded"
+        >
+          {isEdit ? "Update" : "Create"}
+        </button>
+        {isEdit && (
+          <button
+            type="button"
+            onClick={handleDelete}
+            className="p-2 text-white bg-red-500 rounded"
+          >
+            Delete
+          </button>
+        )}
       </form>
     </div>
   );

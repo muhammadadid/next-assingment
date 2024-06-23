@@ -24,8 +24,16 @@ export default function FoodDetail({ food }) {
     <div className="min-h-screen bg-slate-300">
       <NavBar />
       <div className="container flex flex-wrap items-center justify-between p-4 mx-auto">
-      <FoodCard  food={food} />
-      <FoodForm isEdit={true} defaultFormData={{name: food.name, imageUrl: food.imageUrl, description: food.description, ingredients: food.ingredients}} />
+        <FoodCard food={food} />
+        <FoodForm
+          isEdit={true}
+          defaultFormData={{
+            name: food.name,
+            imageUrl: food.imageUrl,
+            description: food.description,
+            ingredients: food.ingredients,
+          }}
+        />
       </div>
     </div>
   );

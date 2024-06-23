@@ -1,7 +1,7 @@
 import FoodCard from "@/components/FoodCard";
 import axios from "axios";
-import { useRouter } from "next/router";
-import NavBar from "@/components/NavBar"; 
+
+import NavBar from "@/components/NavBar";
 
 export async function getServerSideProps() {
   const res = await axios.get(
@@ -21,7 +21,6 @@ export async function getServerSideProps() {
 }
 
 export default function PostDetail({ foods }) {
-  const router = useRouter();
   return (
     <div className="min-h-screen bg-slate-300">
       <NavBar />
